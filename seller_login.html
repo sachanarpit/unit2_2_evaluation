@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="nav_bar.css" />
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
+    <!-- navbar stats -->
+
+    <section>
+      <nav>
+        <ul>
+          <li><a class="left" href="index.html">Home</a></li>
+          <li><a class="right" href="seller_signup.html">seller Sign Up</a></li>
+          <li><a class="right" href="seller_login.html">seller login</a></li>
+        </ul>
+      </nav>
+    </section>
+
+    <!-- navbar ends -->
+
+    <center>
+      <h1>Login Now</h1>
+      <form action="" onsubmit="login(event)" id="form">
+        <input type="text" placeholder="User Name" id="user" required />
+        <br />
+        <input
+          type="password"
+          name=""
+          id="password"
+          placeholder="password"
+          required
+        />
+        <br />
+        <button type="submit">Login</button>
+      </form>
+    </center>
+  </body>
+</html>
+
+<script>
+  function login(e) {
+    e.preventDefault();
+    const admins = JSON.parse(localStorage.getItem("sellerdetails"));
+
+    const form = document.getElementById("form");
+    const user = form.user.value;
+    const pass = form.password.value;
+
+    for (let i = 0; i < admins.length; i++) {
+      let u = admins[i].username;
+      let p = admins[i].password;
+
+      if (u == user && p == pass) {
+        window.location.href = "product_add.html";
+        break;
+      } else {
+        alert("please type correct username/password");
+      }
+    }
+  }
+</script>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="nav_bar.css" />
+    <style>
+      input {
+        padding: 20px;
+        margin: 20px;
+        width: 30%;
+        font-size: x-large;
+        color: rgb(0, 0, 0);
+      }
+      select {
+        margin: 20px;
+        width: 20%;
+        font-size: x-large;
+        color: rgb(0, 0, 0);
+      }
+      label {
+        font-size: 20px;
+      }
+      button {
+        width: 35%;
+        padding: 20px;
+        margin-top: 50px;
+        font-size: xx-large;
+        font-size: 24px;
+        text-align: center;
+        cursor: pointer;
+        outline: none;
+        color: #fff;
+        background-color: #ff0202;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 9px #999;
+      }
+      button:hover {
+        background-color: #690808;
+      }
+
+      button:active {
+        background-color: #dd5555;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+      }
+      #thank {
+        margin: 50px;
+        font-size: 60px;
+        font-weight: 900;
+        color: rgb(245, 63, 63);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- nav bar starts -->
+    <section>
+      <nav>
+        <ul>
+          <li><a class="left" href="index.html">Home</a></li>
+          <li><a class="left" href="products.html">Products</a></li>
+          <li><a class="left" href="product_add.html">Add Products</a></li>
+          <li><a class="right" href="cart.html">Cart</a></li>
+        </ul>
+      </nav>
+    </section>
+
+    <!-- nav bar ends -->
+
+    <center><h1>Add Products</h1></center>
+    <center>
+      <div id="thank"></div>
+      <form action="" id="myForm">
+        <input type="text" id="name" placeholder="Product name" />
+        <br />
+        <input type="number" id="price" placeholder="price" />
+        <br />
+        <input type="text" id="img" placeholder="Product image link" />
+        <br />
+        <input type="text" id="brand" placeholder="type your brand name" />
+      </form>
+      <button type="submit" onclick="addProduct()">Add Product</button>
+      <br />
+    </center>
+  </body>
+</html>
+<script>
+  function addProduct() {
+    var thank = document.getElementById("thank");
+    var form = document.getElementById("myForm");
+    let name = form.name.value;
+    let price = form.price.value;
+    let image = form.img.value;
+    let brand = form.brand.value;
+    if (name != "" && price != "" && image != "") {
+      let product = {
+        name,
+        price,
+        image,
+        brand,
+      };
+
+      let arr;
+      arr = localStorage.getItem("products");
+      if (arr == null) {
+        arr = [];
+      } else {
+        arr = JSON.parse(localStorage.getItem("products"));
+      }
+
+      arr.push(product);
+      localStorage.setItem("products", JSON.stringify(arr));
+
+      var thankyou = document.createElement("p");
+      thankyou.innerHTML = "Thank You! Your Product is added successfuly";
+
+      thank.append(thankyou);
+    }
+  }
+</script>

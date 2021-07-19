@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="nav_bar.css" />
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
+    <!-- navbar start -->
+    <section>
+      <nav>
+        <ul>
+          <li><a class="left" href="index.html">Home</a></li>
+          <li><a class="left" href="products.html">Products</a></li>
+          <li><a class="right" href="cheakout.html">cheakout</a></li>
+          <li><a class="right" href="cart.html">Cart</a></li>
+        </ul>
+      </nav>
+    </section>
+    <!-- navbar ends -->
+    <center>
+      <form action="">
+        <label for="">Debit / credit Card</label>
+        <input
+          type="number"
+          name=""
+          id="cardnumber"
+          placeholder="Card Number"
+        />
+        <br />
+        <label for="">cvv</label>
+        <input type="number" id="cvv" placeholder="CVV" />
+        <br />
+        <button onclick="setTimeout(confirm , 000)">Place Order</button>
+      </form>
+    </center>
+  </body>
+</html>
+<script>
+  function confirm() {
+    alert("Your order is accepted");
+  }
+</script>

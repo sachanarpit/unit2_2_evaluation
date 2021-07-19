@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="nav_bar.css" />
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
+    <!-- navbar stats -->
+
+    <section>
+      <nav>
+        <ul>
+          <li><a class="left" href="index.html">Home</a></li>
+          <li><a class="right" href="seller_signup.html">seller Sign Up</a></li>
+          <li><a class="right" href="seller_login.html">seller login</a></li>
+        </ul>
+      </nav>
+    </section>
+
+    <!-- navbar ends -->
+
+    <center>
+      <h1>Sign Up / register</h1>
+      <form action="" id="mainForm">
+        <input type="text" placeholder="Name" id="name" required /><br />
+        <input type="text" placeholder="User Name" id="user" required />
+        <br />
+        <input type="text" placeholder="Email" id="Email" required />
+        <br />
+        <input
+          type="password"
+          name=""
+          id="password"
+          placeholder="password"
+          required
+        />
+        <br />
+        <button type="submit" onclick="SignUp()">Sign Up</button>
+      </form>
+    </center>
+  </body>
+</html>
+
+<script>
+  function SignUp() {
+    var form = document.getElementById("mainForm");
+    let name = form.name.value;
+    let username = form.user.value;
+    let mail = form.Email.value;
+    let password = form.password.value;
+    if (name != "" && username != "" && password != "" && mail != "") {
+      let userdata = {
+        name,
+        mail,
+        username,
+        password,
+      };
+
+      let arr;
+      arr = localStorage.getItem("sellerdetails");
+      if (arr == null) {
+        arr = [];
+      } else {
+        arr = JSON.parse(localStorage.getItem("sellerdetails"));
+      }
+
+      arr.push(userdata);
+
+      localStorage.setItem("sellerdetails", JSON.stringify(arr));
+    }
+  }
+</script>

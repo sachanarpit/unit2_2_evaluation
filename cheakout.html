@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="nav_bar.css" />
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
+    <!-- navbar starts  -->
+    <section>
+      <nav>
+        <ul>
+          <li><a class="left" href="index.html">Home</a></li>
+          <li><a class="left" href="products.html">Products</a></li>
+          <li><a class="right" href="cheakout.html">cheakout</a></li>
+          <li><a class="right" href="cart.html">Cart</a></li>
+        </ul>
+      </nav>
+    </section>
+
+    <!-- nav bar ends -->
+    <center>
+      <h1>fill order details</h1>
+      <form action="" id="mainForm">
+        <input type="text" placeholder="Name" id="name" required /><br />
+        <input type="text" placeholder="adress" id="adress" required />
+        <br />
+        <input type="text" placeholder="Email" id="Email" required />
+        <br />
+        <input
+          type="tel"
+          name=""
+          id="phone"
+          placeholder="Mobile Number"
+          required
+        />
+        <br />
+        <button type="submit" onclick="pay()">Pay Now</button>
+      </form>
+    </center>
+  </body>
+</html>
+<script>
+  function pay() {
+    window.location.href = "payment.html";
+  }
+</script>
